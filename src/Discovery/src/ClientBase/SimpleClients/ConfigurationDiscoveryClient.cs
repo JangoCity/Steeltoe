@@ -17,14 +17,12 @@ namespace Steeltoe.Discovery.Client.SimpleClients
         {
         }
 
-        public IServiceInstance GetLocalServiceInstance()
-        {
-            throw new NotImplementedException("No known use case for implementing this method");
-        }
+        public IServiceInstance GetLocalServiceInstance() => throw new NotImplementedException("No known use case for implementing this method");
 
-        public Task ShutdownAsync()
-        {
-            return Task.CompletedTask;
-        }
+        public InstanceStatus GetCurrentStatus() => InstanceStatus.UP;
+
+        public Task SetStatusAsync(InstanceStatus status) => Task.CompletedTask;
+
+        public Task ShutdownAsync() => Task.CompletedTask;
     }
 }
